@@ -36,10 +36,10 @@ const countriesReducer = function(state = initialState, action) {
 
 		case DELETE_COUNTRY:
 			const notDeletedCountries = state.countries.filter(
-				country => country.id != action.id
+				country => country.id !== action.id
 			);
 			const notDeletedVisibleCountries = state.visibleCountries.filter(
-				country => country.id != action.id
+				country => country.id !== action.id
 			);
 			return Object.assign({}, state, {
 				countries: notDeletedCountries,
@@ -53,9 +53,9 @@ const countriesReducer = function(state = initialState, action) {
 			return Object.assign({}, state, {
 				visibleCountries: continentCountries
 			});
+		default:
+			return state;
 	}
-
-	return state;
 };
 
 export default countriesReducer;
